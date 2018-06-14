@@ -12,7 +12,7 @@ angular.module('starter.controllers', [])
       }
 
       $scope.loading = $ionicLoading.show({
-        content: 'Getting current location...',
+        content: 'Obtendo localização atual...',
         showBackdrop: false
       });
 
