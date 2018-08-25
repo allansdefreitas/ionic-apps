@@ -3,6 +3,7 @@
 
 
 ### Problems?
-## git submodule: 
+## git submodule:
+#####https://gist.github.com/ryaninvents/9fb333760e217c3425c728a1c2a99db4 (it works)
 ##### https://gist.github.com/kyleturner/1563153
 
