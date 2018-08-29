@@ -20,4 +20,8 @@ export class HomePage {
 
   }
 
+  setRoot(): void{
+    this.navCtrl.setRoot('contact-page-lazy');
+    }
+
 }
