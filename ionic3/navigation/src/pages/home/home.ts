@@ -20,8 +20,9 @@ export class HomePage {
   push(): void {
       this.navCtrl.push('contact-page-lazy', {
         type: 'push',
+        year: 2018, // FUNCIONA COM O ATRIBUTO year AQUI
         course: 'ionic3',
-        ShowGreeting: () => {
+        showGreeting: () => {
           console.log('Welcome, ionic 3 student!!!');
         }
       });

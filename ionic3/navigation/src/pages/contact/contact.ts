@@ -18,8 +18,8 @@ export class ContactPage {
     console.log(this.navParams.get('type'));
     console.log(this.navParams.data.type);
 
-  //  this.navParams.data['showGreeting']();
-    //this.navParams.data.showGreeting();
+   this.navParams.data['showGreeting']();
+    this.navParams.data.showGreeting();
   }
 
   pop(): void{
