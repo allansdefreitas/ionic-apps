@@ -9,7 +9,11 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 })
 export class MyApp {
 
+  /* Selecionar um elemento do template home.html:
+    pode ser pelo tipo (Nav) ou
+    pelo elemento que possui uma determinada variável (#myNavVariable) */
   @ViewChild('myNavVariable') nav: Nav; /* ou @ViewChild(Nav)*/
+
   rootPage:any = 'home-page-lazy';
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {

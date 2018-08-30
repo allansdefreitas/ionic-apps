@@ -1,13 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-/**
- * Generated class for the ContactPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
 @IonicPage({
   name: 'contact-page-lazy'
 })
@@ -21,7 +14,12 @@ export class ContactPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ContactPage');
+    //console.log(this.navParams);
+    console.log(this.navParams.get('type'));
+    console.log(this.navParams.data.type);
+
+  //  this.navParams.data['showGreeting']();
+    //this.navParams.data.showGreeting();
   }
 
   pop(): void{

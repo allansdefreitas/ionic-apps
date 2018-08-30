@@ -15,13 +15,23 @@ export class HomePage {
 
   }
 
+
+
   push(): void {
-      this.navCtrl.push('contact-page-lazy');
+      this.navCtrl.push('contact-page-lazy', {
+        type: 'push',
+        course: 'ionic3',
+        ShowGreeting: () => {
+          console.log('Welcome, ionic 3 student!!!');
+        }
+      });
 
   }
 
   setRoot(): void{
-    this.navCtrl.setRoot('contact-page-lazy');
+    this.navCtrl.setRoot('contact-page-lazy',{
+      type: 'setRoot'
+    });
     }
 
 }
