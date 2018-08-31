@@ -20,8 +20,8 @@ export class HomePage {
   push(): void {
       this.navCtrl.push('contact-page-lazy', {
         type: 'push',
-        year: 2018, // FUNCIONA COM O ATRIBUTO year AQUI
         course: 'ionic3',
+        year: 2018, // FUNCIONA COM O ATRIBUTO year AQUI
         showGreeting: () => {
           console.log('Welcome, ionic 3 student!!!');
         }
@@ -31,8 +31,13 @@ export class HomePage {
 
   setRoot(): void{
     this.navCtrl.setRoot('contact-page-lazy',{
-      type: 'setRoot'
+      type: 'setRoot',
+      course: 'ionic3',
+      year: 2018,
+      showGreeting: () => {
+        console.log('Welcome, ionic 3 student!!!');
+      }
     });
-    }
+  }
 
 }
