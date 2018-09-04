@@ -25,21 +25,22 @@ export class HomePage {
 
   ionViewDidLoad(){
 
-      this.taskService.getAll()
+      this.taskService.getAll(true)
         .then ( (tasks: Task[]) =>{
             this.tasks = tasks;
         });
 
   }
 
-  private onSave(type: string, itemSliding?: ItemSliding, task?: Task): void{
+  private onSave(type: string, itemSliding?: ItemSliding, task?: Task): void {
 
     let title: string = type.charAt(0) + type.substr(1);
     let options = {
       title: '${title} task',
       itemSliding: itemSliding,
       type: type
-    }
+    };
+    this.showAlert(options,task);
   }
 
   onDelete(task: Task): void {
@@ -110,7 +111,7 @@ export class HomePage {
                   break;
               }
 
-              this.taskService[options.title](contextTask)
+              this.taskService.save(contextTask) /* this.taskService[options.title](contextTask) não pegou */
                 .then((savedTask: Task) => {
                   if( options.type === 'create') {
                     this.tasks.unshift(savedTask);

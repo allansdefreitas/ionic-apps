@@ -9,7 +9,7 @@ export class TaskService {
 
   }
 
-  getAll(): Promise<Task[]>{
+  getAll(reverse: boolean): Promise<Task[]>{
 
     return this.storage.ready()
 
@@ -23,7 +23,7 @@ export class TaskService {
           }
 
 
-        }).then( () => tasks );
+        }).then( () => (!reverse) ? tasks : tasks.reverse() ); /* Mostrar sempre as mais recentes no topo da lista */
 
 
       }).catch( err => {
@@ -43,14 +43,16 @@ export class TaskService {
   /*  Os dois métodos abaixo fazem a mesma coisa.. ;)
       A presença dos dois é meramente didática, pois
       poderia ser apenas um método com o nome save, por exemplo */
-  create(task: Task): Promise<Task> {
+
+
+  save(task: Task): Promise<Task> {
 
     return this.storage.set('tasks.${task.id}', task);
   }
 
   update(task: Task): Promise<Task> {
 
-    return this.create(task);
+    return this.save(task);
   }
 
 

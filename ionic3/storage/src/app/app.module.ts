@@ -21,7 +21,7 @@ import { TaskService } from '../providers/task/task.service';
     IonicModule.forRoot(MyApp),
     IonicStorageModule.forRoot({
       name: 'myAppDatabase',
-      storeName: 'taks',
+      storeName: 'tasks',
       driverOrder: ['sqlite', 'indexeddb', 'websql', 'localstorage'] /* ordem default */
     })
   ],
