@@ -32,6 +32,39 @@ export class HomePage {
 
   }
 
+  private onSave(type: string, itemSliding?: ItemSliding, task?: Task): void{
+
+    let title: string = type.charAt(0) + type.substr(1);
+    let options = {
+      title: '${title} task',
+      itemSliding: itemSliding,
+      type: type
+    }
+  }
+
+  onDelete(task: Task): void {
+
+    this.alertCtrl.create({
+
+      title: 'Do you want to delete ${task.title} task?',
+      buttons: [
+        {
+          text: 'Yes',
+          handler: () => {
+            let loading: Loading = this.showLoading('Deleting ${task.title}...');
+
+            this.taskService.delete(task.id)
+            .then((deleted: boolean) =>{
+              this.tasks.splice(this.tasks.indexOf(task), 1); /* Apaga a task da posição indexOf..apaga uma só ;) */
+              loading.dismiss();
+            });
+          }
+        },
+        'No'
+      ]
+
+    }).present();
+  }
   private showLoading(message?: string): Loading {
 
     let loading: Loading = this.loadingCtrl.create({
