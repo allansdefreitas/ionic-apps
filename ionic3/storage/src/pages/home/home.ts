@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
-import { NavController, IonicPage } from 'ionic-angular';
-import { Storage } from '@ionic/storage';
+import { NavController, IonicPage, Loading, LoadingController } from 'ionic-angular';
+
+import { Task } from '../../models/task.model';
+import { TaskService } from '../../providers/task/task.service';
 
 @IonicPage()
 @Component({
@@ -9,29 +11,35 @@ import { Storage } from '@ionic/storage';
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController, private storage: Storage) {
+  constructor(
+    public loadingCtrl: LoadingController,
+    public navCtrl: NavController,
+    public taskService: TaskService
+  ) {}
 
 
-  }
-
-  ionViewWillEnter(){
-
-    this.storage.set('name', 'Peter');
-
-    console.log( 'driver: '+ this.storage.driver);
-
-
-  }
+  tasks: Task[] = [];
 
   ionViewDidLoad(){
 
-    this.storage.get('name').then(
-      (val) => {
-        console.log('your name is: '+ val);
-
-      }
-    );
+      this.taskService.getAll()
+        .then ( (tasks: Task[]) =>{
+            this.tasks = tasks;
+        });
 
   }
+
+  private showLoading(message?: string): Loading {
+
+    let loading: Loading = this.loadingCtrl.create({
+        content: message || 'please wait....'
+    });
+
+    loading.present();
+
+    return loading;
+  }
+
+  private showAlert()...
 
 }
