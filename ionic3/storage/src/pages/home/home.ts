@@ -31,7 +31,11 @@ export class HomePage {
   }
 
   onSave(type: string, ItemSliding?: ItemSliding, task?: Task): void {
+    /* update ---> Update */
     let title: string = type.charAt(0).toUpperCase() + type.substr(1);
+    console.log(type);
+    console.log(title);
+
     let options = {
       title: `${title} task`,
       itemSliding: ItemSliding,
@@ -92,12 +96,14 @@ export class HomePage {
                 contextTask = task;
                 break;
             }
-
+            /* it'll call method taskService.create(task) or taskService.update(task) */
             this.taskService[options.type](contextTask)
               .then((savedTask: Task) => {
                 if (options.type === 'create') this.tasks.unshift(savedTask);
                 loading.dismiss();
-                if (options.itemSliding) options.itemSliding.close();
+                if (options.itemSliding){
+                 options.itemSliding.close();
+                }
               });
 
           }
