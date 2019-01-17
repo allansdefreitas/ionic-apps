@@ -1,0 +1,11 @@
+page-home {
+
+  $VarBackground: orange;
+
+  .box{
+
+    width: 150px;
+    height: 150px;
+    background-color: $VarBackground;
+  }
+}
