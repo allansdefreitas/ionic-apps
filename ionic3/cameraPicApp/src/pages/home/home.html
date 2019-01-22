@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Ionic Camera Picture
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <button ion-button (click)="takePhoto()">Take Photo</button>
+  <button ion-button (click)="getImage()" >Get Image</button>
+  <button ion-button (click)="cropImage()">Crop Image</button>
+
+  <p><img src="{{myPhoto}}"></p>
+</ion-content>
