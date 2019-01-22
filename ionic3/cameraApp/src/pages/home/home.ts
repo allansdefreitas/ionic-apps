@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, AlertController } from 'ionic-angular';
 import { Camera, CameraOptions } from '@ionic-native/camera';
+import { AndroidPermissions } from '@ionic-native/android-permissions';
 
 @Component({
   selector: 'page-home',
@@ -11,13 +12,21 @@ export class HomePage {
   myPhoto: any;
 
   constructor(public navCtrl: NavController,
-    private camera: Camera)
-  {
+    private camera: Camera,
+    private androidPermissions: AndroidPermissions
+  ){ }
 
-  }
 
 
   takePhoto(){
+
+    // this.androidPermissions.checkPermission(this.androidPermissions.PERMISSION.CAMERA).then(
+    //   result => console.log('Has permission?',result.hasPermission),
+    //   err => this.androidPermissions.requestPermission(this.androidPermissions.PERMISSION.CAMERA)
+    // );
+
+    // this.androidPermissions.requestPermissions([this.androidPermissions.PERMISSION.CAMERA,
+    //   this.androidPermissions.PERMISSION.GET_ACCOUNTS]);
 
     const options: CameraOptions = {
       quality: 100,
