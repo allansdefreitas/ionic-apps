@@ -17,90 +17,129 @@ export class HomePage {
     let self = this;
     pdfmake.vfs = pdfFonts.pdfMake.vfs;
 
-    // var docDefinition = {
-    //   content: [
-    //   {
-    //     columns: [
-    //       { text: 'AuditoriaApp', style: 'header' },
-    //       { text: 'Cryptocurrency Payment System', style: 'sub_header' },
+  var dd = {
+    content: [
+      {
+        text: 'Auditoria App',
+        style: 'tituloStyle'
+        },
 
-    //       [
+      {
+          style: 'perguntasStyle',
 
-    //         { text: '', style: 'url' },
-    //         { text: 'Número: ' + "Aud.11111", style: 'url' },
-    //       ]
-    //     ]
-    //   }
-    //   ],
-    //   styles: {
-    //     header: {
-    //       bold: true,
-    //       fontSize: 20,
-    //       alignment: 'left'
-    //     },
-    //       sub_header: {
-    //       fontSize: 18,
-    //       alignment: 'left'
-    //     },
-    //     url: {
-    //       fontSize: 16,
-    //       alignment: 'left'
-    //     }
-    //   },
+        text: [
+          {text: '\nAuditoria: '},
+          {text: 'AUD.28721662', style: 'respostasStyle', italics: true},
 
-    //     pageSize: 'A4',
-    //     pageOrientation: 'portrait'
-    //   };
+          {text: '\nSetor: '},
+          {text: 'Alimentos', style: 'respostasStyle'},
 
-// playground requires you to assign document definition to a variable called dd
+          {text: '\nAuditores: '},
+          {text: 'Allan, Júnior e Micah', style: 'respostasStyle'},
 
-var dd = {
-	content: [
-		{
-			text: 'AuditoriaApp',
-			style: 'header'
-		},
-		'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Confectum ponit legam, perferendis nomine miserum, animi. Moveat nesciunt triari naturam.\n\n',
-		{
-			text: 'Subheader 1 - using subheader style',
-			style: 'subheader'
-		},
-		'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Confectum ponit legam, perferendis nomine miserum, animi. Moveat nesciunt triari naturam posset, eveniunt specie deorsus efficiat sermone instituendarum fuisse veniat, eademque mutat debeo. Delectet plerique protervi diogenem dixerit logikh levius probabo adipiscuntur afficitur, factis magistra inprobitatem aliquo andriam obiecta, religionis, imitarentur studiis quam, clamat intereant vulgo admonitionem operis iudex stabilitas vacillare scriptum nixam, reperiri inveniri maestitiam istius eaque dissentias idcirco gravis, refert suscipiet recte sapiens oportet ipsam terentianus, perpauca sedatio aliena video.',
-		'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Confectum ponit legam, perferendis nomine miserum, animi. Moveat nesciunt triari naturam posset, eveniunt specie deorsus efficiat sermone instituendarum fuisse veniat, eademque mutat debeo. Delectet plerique protervi diogenem dixerit logikh levius probabo adipiscuntur afficitur, factis magistra inprobitatem aliquo andriam obiecta, religionis, imitarentur studiis quam, clamat intereant vulgo admonitionem operis iudex stabilitas vacillare scriptum nixam, reperiri inveniri maestitiam istius eaque dissentias idcirco gravis, refert suscipiet recte sapiens oportet ipsam terentianus, perpauca sedatio aliena video.',
-		'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Confectum ponit legam, perferendis nomine miserum, animi. Moveat nesciunt triari naturam posset, eveniunt specie deorsus efficiat sermone instituendarum fuisse veniat, eademque mutat debeo. Delectet plerique protervi diogenem dixerit logikh levius probabo adipiscuntur afficitur, factis magistra inprobitatem aliquo andriam obiecta, religionis, imitarentur studiis quam, clamat intereant vulgo admonitionem operis iudex stabilitas vacillare scriptum nixam, reperiri inveniri maestitiam istius eaque dissentias idcirco gravis, refert suscipiet recte sapiens oportet ipsam terentianus, perpauca sedatio aliena video.\n\n',
-		{
-			text: 'Subheader 2 - using subheader style',
-			style: 'subheader'
-		},
-		'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Confectum ponit legam, perferendis nomine miserum, animi. Moveat nesciunt triari naturam posset, eveniunt specie deorsus efficiat sermone instituendarum fuisse veniat, eademque mutat debeo. Delectet plerique protervi diogenem dixerit logikh levius probabo adipiscuntur afficitur, factis magistra inprobitatem aliquo andriam obiecta, religionis, imitarentur studiis quam, clamat intereant vulgo admonitionem operis iudex stabilitas vacillare scriptum nixam, reperiri inveniri maestitiam istius eaque dissentias idcirco gravis, refert suscipiet recte sapiens oportet ipsam terentianus, perpauca sedatio aliena video.',
-		'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Confectum ponit legam, perferendis nomine miserum, animi. Moveat nesciunt triari naturam posset, eveniunt specie deorsus efficiat sermone instituendarum fuisse veniat, eademque mutat debeo. Delectet plerique protervi diogenem dixerit logikh levius probabo adipiscuntur afficitur, factis magistra inprobitatem aliquo andriam obiecta, religionis, imitarentur studiis quam, clamat intereant vulgo admonitionem operis iudex stabilitas vacillare scriptum nixam, reperiri inveniri maestitiam istius eaque dissentias idcirco gravis, refert suscipiet recte sapiens oportet ipsam terentianus, perpauca sedatio aliena video.\n\n',
-		{
-			text: 'It is possible to apply multiple styles, by passing an array. This paragraph uses two styles: quote and small. When multiple styles are provided, they are evaluated in the specified order which is important in case they define the same properties',
-			style: ['quote', 'small']
-		}
-	],
-	styles: {
-		header: {
-			fontSize: 22,
-			bold: true
-		},
-		subheader: {
-			fontSize: 15,
-			bold: true
-		},
-		quote: {
-			italics: true
-		},
-		small: {
-			fontSize: 8
-		}
-	}
+          {text: '\nPeríodo: '},
+          {text: '20/02/2019 a 22/02/2019\n\n', style: 'respostasStyle'},
 
-}
+        ]
+      },
+
+
+      /* PERGUNTA #######################################################################*/
+      {
+
+            style: 'perguntasStyle',
+
+        text: [
+
+          {
+              text: 'Art. 1: A empresa possui uma equipe capacitada para o levantamento de requisitos legais aplicáveis? ',
+                style: 'artigoTextoStyle',
+          },
+
+          {text: '\n\nResposta: '},
+          {text: 'Conforme', style: 'respostasStyle'},
+
+          {text: '\n\nObs.: '},
+          {
+              text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc mollis venenatis velit, sit amet elementum mi venenatis vitae. Cras tempor nisl id nunc porttitor semper. Etiam nec velit urna. Vestibulum convallis auctor posuere. Curabitur sollicitudin placerat eleifend. Suspendisse potenti. Duis posuere et sem nec facilisis.',
+              style: 'respostasStyle'},
+
+          {text: '\n\nAnexos: '},
+          {text: 'LoremIpsum.docx', style: 'respostasStyle'},
+
+          {text: '\n\nImagens: '},
+          {text: 'Colocar aqui\n\n', style: 'respostasStyle'},
+
+        ]
+      },
+
+        /* PERGUNTA #######################################################################*/
+      {
+
+            style: 'perguntasStyle',
+
+        text: [
+
+          {
+              text: 'Art. 2: A empresa possui uma equipe capacitada para o levantamento de requisitos legais aplicáveis? ',
+                style: 'artigoTextoStyle',
+          },
+
+          {text: '\n\nResposta: '},
+          {text: 'Não conforme', style: 'respostasStyle'},
+
+          {text: '\n\nObs.: '},
+          {
+              text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc mollis venenatis velit, sit amet elementum mi venenatis vitae. Cras tempor nisl id nunc porttitor semper. Etiam nec velit urna. Vestibulum convallis auctor posuere. Curabitur sollicitudin placerat eleifend. Suspendisse potenti. Duis posuere et sem nec facilisis.',
+              style: 'respostasStyle'},
+
+          {text: '\n\nAnexos: '},
+          {text: 'LoremIpsum.docx', style: 'respostasStyle'},
+
+          {text: '\n\nImagens: '},
+          {text: 'Colocar aqui\n\n', style: 'respostasStyle'},
+
+        ]
+      },
+
+
+
+
+    ],
+
+
+    styles: {
+      tituloStyle: {
+        fontSize: 22,
+        bold: true
+      },
+
+        perguntasStyle: {
+            bold: true,
+          fontSize: 14
+
+      },
+      respostasStyle: {
+          fontSize: 13,
+          bold: false
+
+      },
+
+      artigoTextoStyle: {
+        fontSize: 15,
+        bold: true
+      }
+
+    }
+
+    }
+
+
+
       pdfmake.createPdf(dd).getBuffer(function (buffer) {
         let utf8 = new Uint8Array(buffer);
         let binaryArray = utf8.buffer;
-        self.saveToDevice(binaryArray,"Aud.1111.pdf")
+        self.saveToDevice(binaryArray,"AUD.187384738.pdf")
       });
   }
 
