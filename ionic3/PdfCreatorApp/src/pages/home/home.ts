@@ -139,7 +139,8 @@ export class HomePage {
       pdfmake.createPdf(dd).getBuffer(function (buffer) {
         let utf8 = new Uint8Array(buffer);
         let binaryArray = utf8.buffer;
-        self.saveToDevice(binaryArray,"AUD.187384738.pdf")
+        self.saveToDevice(binaryArray,"TESTE.22pdf828828.pdf");
+
       });
   }
 
@@ -156,6 +157,5 @@ export class HomePage {
 
     toast.present();
   }
-
 
 }
