@@ -1,0 +1,15 @@
+BAsed on tutorial: https://ionicacademy.com/create-pdf-files-ionic-pdfmake/
+
+RUN THESE COMMANDS TOO:
+
+ionic cordova plugin add cordova-plugin-file
+npm install @ionic-native/file@4.2.0
+
+
+AFTER:
+rm -rf ./node_modules
+npm install
+ionic cordova platform remove android 
+ionic cordova platform add android
+
+READY! ARE WE GO?!
