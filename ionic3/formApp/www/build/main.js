@@ -41,6 +41,7 @@ webpackEmptyAsyncContext.id = 149;
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__models_Task__ = __webpack_require__(268);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -52,20 +53,25 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
 var HomePage = /** @class */ (function () {
     function HomePage(formBuilder) {
         this.formBuilder = formBuilder;
+        this.task = new __WEBPACK_IMPORTED_MODULE_2__models_Task__["a" /* Task */]();
         this.todo = this.formBuilder.group({
             title: ['', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["f" /* Validators */].required],
             description: ['', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["f" /* Validators */].required],
         });
     }
     HomePage.prototype.logForm = function () {
+        console.log(this.todo.valid);
         console.log(this.todo.value);
+        this.task = this.todo.value;
+        console.log(this.task);
     };
     HomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            template: "\n    <form [formGroup]=\"todo\" (ngSubmit)=\"logForm()\">\n      <ion-item>\n        <ion-label>Todo</ion-label>\n        <ion-input type=\"text\" formControlName=\"title\"></ion-input>\n      </ion-item>\n      <ion-item>\n        <ion-label>Description</ion-label>\n        <ion-textarea formControlName=\"description\"></ion-textarea>\n      </ion-item>\n      <button ion-button type=\"submit\" [disabled]=\"!todo.valid\">Submit</button>\n    </form>\n  "
+            selector: 'page-home',template:/*ion-inline-start:"/home/allan/Documentos/repos/ionic-apps/ionic3/formApp/src/pages/home/home.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n      Ionic Blank\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <form [formGroup]="todo" (ngSubmit)="logForm()">\n    <ion-item>\n      <ion-label>Todo</ion-label>\n      <ion-input type="text" formControlName="title"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label>Description</ion-label>\n      <ion-textarea formControlName="description"></ion-textarea>\n    </ion-item>\n    <button ion-button type="submit" [disabled]="!todo.valid">Submit</button>\n  </form>\n\n</ion-content>\n'/*ion-inline-end:"/home/allan/Documentos/repos/ionic-apps/ionic3/formApp/src/pages/home/home.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["a" /* FormBuilder */]])
     ], HomePage);
@@ -192,6 +198,21 @@ var MyApp = /** @class */ (function () {
 }());
 
 //# sourceMappingURL=app.component.js.map
+
+/***/ }),
+
+/***/ 268:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Task; });
+var Task = /** @class */ (function () {
+    function Task() {
+    }
+    return Task;
+}());
+
+//# sourceMappingURL=Task.js.map
 
 /***/ })
 

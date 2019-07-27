@@ -1,32 +1,32 @@
 import { Component } from '@angular/core';
 import {Validators, FormBuilder, FormGroup } from '@angular/forms';
+import { Task } from '../models/Task';
 
 @Component({
-  template: `
-    <form [formGroup]="todo" (ngSubmit)="logForm()">
-      <ion-item>
-        <ion-label>Todo</ion-label>
-        <ion-input type="text" formControlName="title"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label>Description</ion-label>
-        <ion-textarea formControlName="description"></ion-textarea>
-      </ion-item>
-      <button ion-button type="submit" [disabled]="!todo.valid">Submit</button>
-    </form>
-  `
+  selector: 'page-home',
+  templateUrl: 'home.html'
 })
 
 export class HomePage {
   private todo : FormGroup;
+  private task: Task = new Task();
 
   constructor( private formBuilder: FormBuilder ) {
+
     this.todo = this.formBuilder.group({
       title: ['', Validators.required],
       description: ['', Validators.required],
-    });
+    });  
   }
+
   logForm(){
-    console.log(this.todo.value)
+    console.log(this.todo.valid)
+
+    console.log(this.todo.value);
+    
+    this.task = this.todo.value;
+    
+    console.log(this.task)
+    
   }
 }
